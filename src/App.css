@@ -1,13 +1,21 @@
-#components-layout-demo-responsive .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
+
+.text-center {
+  text-align: center;
 }
 
-.site-layout-sub-header-background {
-  background: #fff;
+
+.m-1 {
+  margin: 1%;
 }
 
-.site-layout-background {
-  background: #fff;
-}                     
+.m-2 {
+  margin: 2%;
+}
+
+.m-3 {
+  margin: 3%;
+}
+
+.sider {
+  /* box-shadow: 0 0 18px -6px black; */
+}

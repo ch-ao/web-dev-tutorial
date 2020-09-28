@@ -4,7 +4,9 @@ import { Component } from 'react';
 import './App.css';
 import 'antd/dist/antd.css'; 
 import { Typography } from 'antd';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu} from 'antd';
+import { Image } from 'antd';
+import Logo from './imgs/introduction/Picture21.png'
 import Introduction from './pages/Introduction';
 import HTML1 from './pages/htmlPages/HTML1';
 import HTML2 from './pages/htmlPages/HTML2';
@@ -15,7 +17,7 @@ const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
 
-  const [page, setPage] = useState('HTML1');
+  const [page, setPage] = useState('');
 
   const handlePage = (e) => {
     setPage(e.key)
@@ -38,28 +40,46 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
       <Layout>
-        <Header className="header">
-          <div className="logo" />
-          <Title style={{color: '#fff',textAlign: 'center', paddingTop: '10px'}}>Web Development Tutorial by Chao</Title>
-          <h1></h1>
-        </Header>
-        <Content style={{ padding: '0 50px' }}>
-          <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
-            <Sider className="site-layout-background" width={200}>
+      
+        <Menu mode="horizontal" 
+          defaultSelectedKeys={['web']} 
+          style={{textAlign: "center", padding: '0px', boxShadow: '0 0 18px -6px black'
+        }}>
+          <Menu.Item 
+            key="web" 
+            style={{margin: "0 50px", padding: '10px 40px'}}>
+            WEB DEV
+          </Menu.Item>
+          <Menu.Item 
+            key="python" 
+            style={{margin: "0 50px", padding: '10px 40px'}}>
+          PYTHON
+          </Menu.Item>
+          <Menu.Item 
+            key="codemao" 
+            style={{margin: "0 50px", padding: '10px 40px'}}>
+            CODEMAO
+          </Menu.Item>
+        </Menu>
+     
+        <Content>
+          <Layout>
+            <Sider className="sider" width={300} >
               <Menu
                 mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{ height: '100%', paddingTop: '0px' }}
+                defaultSelectedKeys={['intro']}
+                defaultOpenKeys={['html', 'css', 'js']}
+                style={{ height: '100%', fontSize: '1.2em'}}
               >
-                <Menu.Item key="intro"  onClick={handlePage}>Introduction</Menu.Item>
+                <Menu.Item key="intro"  onClick={handlePage} >Introduction</Menu.Item>
                 <SubMenu key="html" title="HTML">
-                  <Menu.Item key="html1" onClick={handlePage}>option1</Menu.Item>
-                  <Menu.Item key="html2" onClick={handlePage}>option2</Menu.Item>
-                  <Menu.Item key="html3" onClick={handlePage}>option3</Menu.Item>
-                  <Menu.Item key="html4" onClick={handlePage}>option4</Menu.Item>
+                  <Menu.Item key="html1" onClick={handlePage}>HTML Introduction</Menu.Item>
+                  <Menu.Item key="html2" onClick={handlePage}>HTML Basics</Menu.Item>
+                  <Menu.Item key="html3" onClick={handlePage}>HTML Elements</Menu.Item>
+                  <Menu.Item key="html4" onClick={handlePage}>HTML Attributes</Menu.Item>
+                  <Menu.Item key="html5" onClick={handlePage}>HTML Heading</Menu.Item>
                 </SubMenu>
                 <SubMenu key="css" title="CSS">
                   <Menu.Item key="css1" onClick={handlePage}>option5</Menu.Item>
@@ -75,12 +95,12 @@ function App() {
                 </SubMenu>
               </Menu>
             </Sider>
-            <Content style={{ minHeight: 400, backgroundColor: '#fff', marginLeft: '20px', padding: '20px' }}>
+            <Content style={{ minHeight: 400, backgroundColor: '#fff', padding: '3%'}}>
               <RenderPage />
             </Content>
           </Layout>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2020 Created by Chao</Footer>
+        <Footer style={{ textAlign: 'center' }}>Teaching Tutorial ©2020 Created by Chao</Footer>
       </Layout>
     </div>
   );
