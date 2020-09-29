@@ -4,11 +4,12 @@ import { Divider } from 'antd';
 const { Text } = Typography;
 const { Title } = Typography;
 
-export default function JS3() {
+
+export default function MyjQuery() {
   return (
     <div>
-      <Title>JavaScript Intermediate</Title>
-      <Divider/>     
+      <Title>jQuery Tutorial</Title>
+      <Divider/>   
     </div>
   )
 }

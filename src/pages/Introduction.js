@@ -12,6 +12,7 @@ import Image4 from '../imgs/introduction/Picture13.png';
 import Image5 from '../imgs/introduction/Picture14.png';
 import Image6 from '../imgs/introduction/Picture15.png';
 import Image7 from '../imgs/introduction/Picture16.png';
+import { Picture } from 'react-responsive-picture';
 
 const { Title, Paragraph, Text } = Typography;
 
