@@ -4,10 +4,10 @@ import { Divider } from 'antd';
 const { Text } = Typography;
 const { Title } = Typography;
 
-export default function HTML1() {
+export default function JS1() {
   return (
     <div>
-      <Title>HTML Introduction</Title>
+      <Title>JavaScript Introduction</Title>
       <Divider/>
     </div>
   )
