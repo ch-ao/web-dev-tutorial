@@ -9,20 +9,12 @@ import { Menu} from 'antd';
 import { Image } from 'antd';
 import Welcome from './pages/Welcome';
 import Introduction from './pages/Introduction';
-import HTML1 from './pages/htmlPages/HTML1';
-import HTML2 from './pages/htmlPages/HTML2';
-import HTML3 from './pages/htmlPages/HTML3';
-import HTML4 from './pages/htmlPages/HTML4';
-import CSS1 from './pages/cssPages/CSS1';
-import CSS2 from './pages/cssPages/CSS2';
-import CSS3 from './pages/cssPages/CSS3';
-import CSS4 from './pages/cssPages/CSS4';
-import JS1 from './pages/jsPages/JS1';
-import JS2 from './pages/jsPages/JS2';
-import JS3 from './pages/jsPages/JS3';
-import JS4 from './pages/jsPages/JS4';
+import HTMLtutorial from './pages/HTMLtutorial';
+import CSStutorial from './pages/CSStutorial';
+import JStutorial from './pages/JStutorial';
 import MyjQuery from './pages/MyjQuery';
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive';
+import HtmlIcon from './imgs/icons/html.png';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -30,35 +22,44 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
+import { createFromIconfontCN } from '@ant-design/icons';
+
+const { Title } = Typography;
+const { SubMenu } = Menu;
+const { Header, Content, Footer, Sider } = Layout;
+const IconFont = createFromIconfontCN({
+  scriptUrl: [
+    '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart (overrided)
+    '//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js', // icon-shoppingcart, icon-python
+  ],
+});
 
 function App() {
 
-  const { Title } = Typography;
-  const { SubMenu } = Menu;
-  const { Header, Content, Footer, Sider } = Layout;
+
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   const [page, setPage] = useState('');
 
+  const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
+
   const handlePage = (e) => {
     setPage(e.key);
+    scrollToTop();
   }
 
   const RenderPage = () => {
     switch(page) {
       case 'welcome': return <Welcome />;
       case 'intro': return <Introduction />;
-      case 'html1': return <HTML1 />;
-      case 'html2': return <HTML2 />;
-      case 'html3': return <HTML3 />;
-      case 'html4': return <HTML4 />;
-      case 'css1': return <CSS1 />;
-      case 'css2': return <CSS2/>;
-      case 'css3': return <CSS3 />;
-      case 'css4': return <CSS4 />;
-      case 'js1': return <JS1 />;
-      case 'js2': return <JS2/>;
-      case 'js3': return <JS3 />;
-      case 'js4': return <JS4 />;
+      case 'htmlTutorial': return <HTMLtutorial />;
+      case 'cssTutorial': return <CSStutorial />;
+      case 'jsTutorial': return <JStutorial />;
       case 'jquery': return <MyjQuery />;
       default: return <Welcome />;
     }
@@ -67,42 +68,26 @@ function App() {
   return (
     <div>
       <Layout>  
-        <Content>
+        <Content>        
           <Layout>
             <Sider 
             className="sider" 
             width={300}
-            
             collapsed={ isTabletOrMobile ? true : false }
+            style={{height: '100%', margin: '20px'}}
             >
               <Menu
                 mode="inline"
                 theme='dark'
                 defaultSelectedKeys={['welcome']}
-                defaultOpenKeys={['html', 'css', 'js', 'projects']}
+                defaultOpenKeys={['projects']}
                 style={{ height: '100%'}}
               >
-                <Menu.Item key="logo" disabled style={{fontSize: '1.2em', textTransform: 'uppercase', backgroundColor: 'black'}}>Web Dev Tutorial</Menu.Item>
-                <Menu.Item key="welcome" onClick={handlePage} >Welcome</Menu.Item>
+                <Menu.Item key="welcome" onClick={handlePage} icon={<IconFont type="icon-jquery" />}> Welcome</Menu.Item>
                 <Menu.Item key="intro"  onClick={handlePage} >Introduction</Menu.Item>
-                <SubMenu key="html" title="HTML Tutorial">
-                  <Menu.Item key="html1" onClick={handlePage}>HTML Introduction</Menu.Item>
-                  <Menu.Item key="html2" onClick={handlePage}>HTML Basics</Menu.Item>
-                  <Menu.Item key="html3" onClick={handlePage}>HTML Intermediate</Menu.Item>
-                  <Menu.Item key="html4" onClick={handlePage}>HTML Advanced</Menu.Item>
-                </SubMenu>
-                <SubMenu key="css" title="CSS Tutorial">
-                  <Menu.Item key="css1" onClick={handlePage}>CSS Introduction</Menu.Item>
-                  <Menu.Item key="css2" onClick={handlePage}>CSS Basics</Menu.Item>
-                  <Menu.Item key="css3" onClick={handlePage}>CSS Intermediate</Menu.Item>
-                  <Menu.Item key="css4" onClick={handlePage}>CSS Advanced</Menu.Item>
-                </SubMenu>
-                <SubMenu key="js" title="JavaScript Tutorial">
-                  <Menu.Item key="js1" onClick={handlePage}>JS Introduction</Menu.Item>
-                  <Menu.Item key="js2" onClick={handlePage}>JS Basics</Menu.Item>
-                  <Menu.Item key="js3" onClick={handlePage}>JS Intermediate</Menu.Item>
-                  <Menu.Item key="js4" onClick={handlePage}>JS Advanced</Menu.Item>
-                </SubMenu>
+                <Menu.Item key="htmlTutorial"  onClick={handlePage} >HTML Tutorial</Menu.Item>
+                <Menu.Item key="cssTutorial"  onClick={handlePage} >CSS Tutorial</Menu.Item>
+                <Menu.Item key="jsTutorial"  onClick={handlePage} icon={<IconFont type="icon-javascript" />}>JavaScript Tutorial</Menu.Item>
                 <Menu.Item key="jquery"  onClick={handlePage} >jQuery Tutorial</Menu.Item>
                 <SubMenu key="projects" title="Integrated Projects">
                   <Menu.Item key="project1" onClick={handlePage}>BMI Calculator</Menu.Item>
@@ -112,7 +97,7 @@ function App() {
                 </SubMenu>
               </Menu>            
             </Sider>
-            <Content style={{ minHeight: 400, backgroundColor: '#fff', padding: '1% 5%'}}>
+            <Content style={{ minHeight: 400, backgroundColor: '#fff', padding: '30px 40px', margin: '20px'}}>
               <RenderPage />
             </Content>
           </Layout>
