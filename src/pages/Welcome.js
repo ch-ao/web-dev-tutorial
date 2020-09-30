@@ -13,7 +13,7 @@ export default function Welcome() {
         Hi, Welcome to My Web Dev Tutorial !
       </Title>
       <Title level={3}>
-        My name is Chao. I am a Front End Software Engineer and a Programming Instructor. I would like to provide different levels of knowledge you need to learn to help you quickly get into web development. 
+        My name is Chao. I am a Front End Software Engineer and a Programming Instructor. I would like to provide some useful knowledge to help you quickly get into web development in an easy way. 
       </Title>
       <Title level={3}>
         👈🏻 Let's start !
