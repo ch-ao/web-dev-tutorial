@@ -2,40 +2,24 @@ import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css'; 
 import { useState } from 'react';
-import { Component } from 'react';
 import { Typography } from 'antd';
 import { Layout } from 'antd';
 import { Menu} from 'antd';
-import { Image } from 'antd';
-import Welcome from './pages/Welcome';
-import Introduction from './pages/Introduction';
-import HTMLtutorial from './pages/HTMLtutorial';
-import CSStutorial from './pages/CSStutorial';
-import JStutorial from './pages/JStutorial';
-import MyjQuery from './pages/MyjQuery';
+// import { Image } from 'antd';
 import { useMediaQuery } from 'react-responsive';
-import HtmlIcon from './imgs/icons/html.png';
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-} from '@ant-design/icons';
-import { createFromIconfontCN } from '@ant-design/icons';
+import Welcome from './pages/welcomePage/Welcome';
+import Introduction from './pages/introductionPage/Introduction';
+import HTMLtutorial from './pages/htmlPage/HTMLtutorial';
+import CSStutorial from './pages/cssPage/CSStutorial';
+import JStutorial from './pages/jsPage/JStutorial';
+
+// import { createFromIconfontCN } from '@ant-design/icons';
 
 const { Title } = Typography;
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
-const IconFont = createFromIconfontCN({
-  scriptUrl: [
-    '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart (overrided)
-    '//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js', // icon-shoppingcart, icon-python
-  ],
-});
 
 function App() {
-
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   const [page, setPage] = useState('');
@@ -48,7 +32,7 @@ function App() {
     }
   };
 
-  const handlePage = (e) => {
+  const handlePage = (e : any) => {
     setPage(e.key);
     scrollToTop();
   }
@@ -60,14 +44,13 @@ function App() {
       case 'htmlTutorial': return <HTMLtutorial />;
       case 'cssTutorial': return <CSStutorial />;
       case 'jsTutorial': return <JStutorial />;
-      case 'jquery': return <MyjQuery />;
       default: return <Welcome />;
     }
   }
 
   return (
-    <div>
-      <Layout>  
+    <div className="App">
+       <Layout>  
         <Content>        
           <Layout>
             <Sider 
@@ -83,11 +66,11 @@ function App() {
                 defaultOpenKeys={['projects']}
                 style={{ height: '100%'}}
               >
-                <Menu.Item key="welcome" onClick={handlePage} icon={<IconFont type="icon-jquery" />}> Welcome</Menu.Item>
+                <Menu.Item key="welcome" onClick={handlePage} > Welcome</Menu.Item>
                 <Menu.Item key="intro"  onClick={handlePage} >Introduction</Menu.Item>
                 <Menu.Item key="htmlTutorial"  onClick={handlePage} >HTML Tutorial</Menu.Item>
                 <Menu.Item key="cssTutorial"  onClick={handlePage} >CSS Tutorial</Menu.Item>
-                <Menu.Item key="jsTutorial"  onClick={handlePage} icon={<IconFont type="icon-javascript" />}>JavaScript Tutorial</Menu.Item>
+                <Menu.Item key="jsTutorial"  onClick={handlePage} >JavaScript Tutorial</Menu.Item>
                 <Menu.Item key="jquery"  onClick={handlePage} >jQuery Tutorial</Menu.Item>
                 <SubMenu key="projects" title="Integrated Projects">
                   <Menu.Item key="project1" onClick={handlePage}>BMI Calculator</Menu.Item>

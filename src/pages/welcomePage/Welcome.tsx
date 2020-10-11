@@ -1,8 +1,6 @@
 import React from 'react'
 import { Typography } from 'antd';
-import { Divider } from 'antd';
 import { Image } from 'antd';
-const { Text } = Typography;
 const { Title } = Typography;
 
 export default function Welcome() {
@@ -13,7 +11,7 @@ export default function Welcome() {
         Hi, Welcome to My Web Dev Tutorial !
       </Title>
       <Title level={3}>
-        My name is Chao. I am a Front End Software Engineer and a Programming Instructor. I would like to provide some useful knowledge to help you quickly get into web development in an easy way. 
+        My name is Chao. I am a Front Developer and a Programming Instructor. I would like to share some useful knowledge with you to help you quickly & easily get into web development. 
       </Title>
       <Title level={3}>
         👈🏻 Let's start !

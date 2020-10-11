@@ -1,26 +1,25 @@
 import React from 'react'
 import { Image } from 'antd';
-import { Typography, Divider } from 'antd';
-import DNSImage1 from '../imgs/introduction/Picture4.png';
-import DNSImage2 from '../imgs/introduction/Picture5.png';
-import DNSImage3 from '../imgs/introduction/Picture6.png';
-import ThreeFiles1 from '../imgs/introduction/Picture9.png';
-import Image1 from '../imgs/introduction/Picture10.png';
-import Image2 from '../imgs/introduction/Picture11.png';
-import Image3 from '../imgs/introduction/Picture12.png';
-import Image4 from '../imgs/introduction/Picture13.png';
-import Image5 from '../imgs/introduction/Picture14.png';
-import Image6 from '../imgs/introduction/Picture15.png';
-import Image7 from '../imgs/introduction/Picture16.png';
-import { Picture } from 'react-responsive-picture';
+import { Typography } from 'antd';
+import { Divider } from 'antd';
+import DNSImage1 from '../../imgs/introduction/Picture4.png';
+import DNSImage2 from '../../imgs/introduction/Picture5.png';
+import DNSImage3 from '../../imgs/introduction/Picture6.png';
+import ThreeFiles1 from '../../imgs/introduction/Picture9.png';
+import Image1 from '../../imgs/introduction/Picture10.png';
+import Image2 from '../../imgs/introduction/Picture11.png';
+import Image3 from '../../imgs/introduction/Picture12.png';
+import Image4 from '../../imgs/introduction/Picture13.png';
+import Image5 from '../../imgs/introduction/Picture14.png';
+import Image6 from '../../imgs/introduction/Picture15.png';
+import Image7 from '../../imgs/introduction/Picture16.png';
 
 const { Title, Paragraph, Text } = Typography;
 
 export default function Introduction() {
   return (
     <div>
-
-      <Title>Introduction to Web Development</Title>
+  <Title>Introduction to Web Development</Title>
       <Divider />
 
       <Title level={2}>What is the Internet ?</Title>
@@ -36,6 +35,7 @@ export default function Introduction() {
           <Image
               width={300}
               src={DNSImage1}
+              className='myImage'
             />
         </div>
         <div className='mycol'>
@@ -43,6 +43,7 @@ export default function Introduction() {
             <Image
               width={300}
               src={DNSImage2}
+              className='myImage'
             />
         </div>
         <div className='mycol'>
@@ -50,6 +51,7 @@ export default function Introduction() {
             <Image
               width={300}
               src={DNSImage3}
+              className='myImage'
             />
         </div>
       </div>
@@ -59,6 +61,7 @@ export default function Introduction() {
         <Image
           width={400}
           src={ThreeFiles1}
+          className='myImage'
         />
       </div>
 
@@ -69,6 +72,7 @@ export default function Introduction() {
           <Image
               width={300}
               src={Image1}
+              className='myImage'
             />
         </div>
         <div className='mycol'>
@@ -76,6 +80,7 @@ export default function Introduction() {
             <Image
               width={300}
               src={Image2}
+              className='myImage'
             />
         </div>
         <div className='mycol'>
@@ -83,6 +88,7 @@ export default function Introduction() {
             <Image
               width={300}
               src={Image3}
+              className='myImage'
             />
         </div>
       </div>
@@ -94,14 +100,12 @@ export default function Introduction() {
           <Image
               width={200}
               src={Image6}
+              className='myImage'
             />
         </div>
         <div className='mycol'>
           <Title level={4}>Google Chrome</Title>
-            <Image
-              width={200}
-              src={Image5}
-            />
+          <img src={Image5} width='200' alt=""/>
         </div>
       </div>
 
@@ -111,6 +115,7 @@ export default function Introduction() {
           <Image
               width={800}
               src={Image7}
+              className='myImage'
             />
         </div>
       </div>
@@ -121,7 +126,6 @@ export default function Introduction() {
           <Text>Ask Google; Stack Overflow.; MDN Web Docs; W3c School </Text>
         </div>
       </div>
-
-  </div>
+    </div>
   )
 }
